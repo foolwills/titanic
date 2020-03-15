@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier, export_graphviz
 from sklearn.feature_extraction import DictVectorizer
 
-titanic = pd.read_csv("D:/mycode/titanic/data/train.csv")
+titanic = pd.read_csv("train.csv")
 
 print(titanic.describe())
 
@@ -13,7 +13,7 @@ titanic.loc[titanic["Sex"] == "female","Sex"] = 1
 
 print(titanic["Sex"].unique())
 
-#Enbarked
+#Embarked
 # titanic["Embarked"] = titanic["Embarked"].fillna('S')
 # titanic.loc[titanic["Embarked"] == "S","Embarked"] = 0
 # titanic.loc[titanic["Embarked"] == "C","Embarked"] = 1
@@ -42,7 +42,7 @@ x_test = transfer.transform(x_test)
 estimator = DecisionTreeClassifier(criterion = "entropy")
 estimator.fit(x_train,y_train)
 
-y_train.to_csv('D:/mycode/titanic/test.csv')
+y_train.to_csv('output.csv')
 
 #模型评估
 score = estimator.score(x_test,y_test)
